@@ -5,12 +5,14 @@
 \title{Get All Radarr Movies}
 \usage{
 get_movies(url = Sys.getenv("radarr_url"),
-  apikey = Sys.getenv("radarr_apikey"))
+  apikey = Sys.getenv("radarr_apikey"), progress = TRUE)
 }
 \arguments{
 \item{url}{The Radarr base URL, defaults to \code{Sys.getenv("radarr_url")}.}
 
 \item{apikey}{The Radarr API key, defaults to \code{Sys.getenv("radarr_apikey")}}
+
+\item{progress}{If \code{TRUE} (default), displays a progress bar via \link[dplyr:progress_estimated]{dplyr::progress_estimated}.}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} of all movies

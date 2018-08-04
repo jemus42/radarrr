@@ -2,32 +2,43 @@
 #'
 #' @param url The Radarr base URL, defaults to `Sys.getenv("radarr_url")`.
 #' @param apikey The Radarr API key, defaults to `Sys.getenv("radarr_apikey")`
+#' @param progress If `TRUE` (default), displays a progress bar via [dplyr::progress_estimated].
 #'
 #' @return A [tibble::tibble] of all movies
 #' @export
 #' @import httr
 #' @importFrom purrr map_df
+#' @importFrom dplyr progress_estimated
 #'
 #' @examples
 #' \dontrun{
 #' movies <- get_movies()
 #' }
 get_movies <- function(url = Sys.getenv("radarr_url"),
-                       apikey = Sys.getenv("radarr_apikey")) {
+                       apikey = Sys.getenv("radarr_apikey"),
+                       progress = TRUE) {
 
   url = paste0(url, "/api/movie")
   url <- parse_url(url)
   res <- content(GET(url, add_headers("X-Api-Key" = apikey)))
 
-  map_df(res, extract_movie)
+  if (progress) {
+    pb <- progress_estimated(length(res), min_time = 0)
+  } else {
+    pb <- NULL
+  }
 
+  map_df(res, extract_movie, .pb = pb)
 }
 
 #' @keywords internal
 #' @importFrom tibble tibble
 #' @importFrom purrr pluck
 #' @importFrom lubridate ymd_hms
-extract_movie <- function(movie) {
+extract_movie <- function(movie, .pb = NULL) {
+
+  if ((!is.null(.pb)) && inherits(.pb, "Progress") && (.pb$i < .pb$n)) .pb$tick()$print()
+
   tibble(
     title = movie$title,
     sortTitle = movie$sortTitle,
