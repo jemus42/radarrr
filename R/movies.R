@@ -5,6 +5,8 @@
 #'
 #' @return A [tibble::tibble] of all movies
 #' @export
+#' @import httr
+#' @importFrom purrr map_df
 #'
 #' @examples
 #' \dontrun{
@@ -22,6 +24,9 @@ get_movies <- function(url = Sys.getenv("radarr_url"),
 }
 
 #' @keywords internal
+#' @importFrom tibble tibble
+#' @importFrom purrr pluck
+#' @importFrom lubridate ymd_hms
 extract_movie <- function(movie) {
   tibble(
     title = movie$title,

@@ -2,4 +2,9 @@
 
 export("%>%")
 export(get_movies)
+import(httr)
+importFrom(lubridate,ymd_hms)
 importFrom(magrittr,"%>%")
+importFrom(purrr,map_df)
+importFrom(purrr,pluck)
+importFrom(tibble,tibble)
