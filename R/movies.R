@@ -1,0 +1,65 @@
+#' Get All Radarr Movies
+#'
+#' @param url The Radarr base URL, defaults to `Sys.getenv("radarr_url")`.
+#' @param apikey The Radarr API key, defaults to `Sys.getenv("radarr_apikey")`
+#'
+#' @return A [tibble::tibble] of all movies
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' movies <- get_movies()
+#' }
+get_movies <- function(url = Sys.getenv("radarr_url"),
+                       apikey = Sys.getenv("radarr_apikey")) {
+
+  url = paste0(url, "/api/movie")
+  url <- parse_url(url)
+  res <- content(GET(url, add_headers("X-Api-Key" = apikey)))
+
+  map_df(res, extract_movie)
+
+}
+
+#' @keywords internal
+extract_movie <- function(movie) {
+  tibble(
+    title = movie$title,
+    sortTitle = movie$sortTitle,
+    sizeOnDisk = movie$sizeOnDisk,
+    status = movie$status,
+    inCinemas = movie$inCinemas,
+    physicalRelease = pluck(movie, "movie$physicalRelease", .default = NA),
+    physicialReleaseNote = pluck(movie, "physicalReleaseNote", .default = NA),
+    downloaded = movie$downloaded,
+    year = movie$year,
+    hasFile = movie$hasFile,
+    studio = pluck(movie, "studio", .default = NA),
+    profileId = movie$profileId,
+    pathState = movie$pathState,
+    isAvailable = movie$isAvailable,
+    folderName = pluck(movie, "folderName",  .default = NA),
+    runtime = movie$runtime,
+    cleanTitle = movie$cleanTitle,
+    imdbId = movie$imdbId,
+    tmdbId = movie$tmdbId,
+    added = ymd_hms(movie$added),
+    file_movieId = pluck(movie, "movieFile", "movieId", .default = NA),
+    file_relativePath = pluck(movie, "movieFile", "relativePath", .default = NA),
+    file_size = pluck(movie, "movieFile", "size", .default = NA),
+    file_dateAdded = ymd_hms(pluck(movie, "movieFile", "dateAdded", .default = NA)),
+    file_releaseGroup = pluck(movie, "movieFile", "releaseGroup", .default = NA),
+    file_quality = pluck(movie, "movieFile", "quality", "quality", "name", .default = NA),
+    mediainfo_videoCodec = pluck(movie, "movieFile", "mediaInfo", "videoCodec", .default = NA),
+    mediainfo_videoBitrate = pluck(movie, "movieFile", "mediaInfo", "videoBitrate", .default = NA),
+    mediainfo_videoBitDepth = pluck(movie, "movieFile", "mediaInfo", "videoBitDepth", .default = NA),
+    mediainfo_width = pluck(movie, "movieFile", "mediaInfo", "width", .default = NA),
+    mediainfo_height = pluck(movie, "movieFile", "mediaInfo", "height", .default = NA),
+    mediainfo_audioFormat = pluck(movie, "movieFile", "mediaInfo",  "audioFormat", .default = NA),
+    mediainfo_audioBitrate = pluck(movie, "movieFile", "mediaInfo",  "audioBitrate", .default = NA),
+    mediainfo_runtime = pluck(movie, "movieFile", "mediaInfo",  "runTime", .default = NA),
+    mediainfo_audioStreamCount = pluck(movie, "movieFile", "mediaInfo",  "audioStreamCount", .default = NA),
+    medainfo_audioChannels = pluck(movie, "movieFile", "mediaInfo",  "audioChannels", .default = NA),
+    mediainfo_audioLanguages = paste0(pluck(movie, "movieFile", "mediaInfo", "audioLanguages", .default = NA))
+  )
+}
