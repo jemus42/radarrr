@@ -3,6 +3,16 @@
 
 # radarrr
 
+<!-- badges: start -->
+
+[![R build
+status](https://github.com/jemus42/radarrr/workflows/R-CMD-check/badge.svg)](https://github.com/jemus42/radarrr/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/radarrr)](https://CRAN.R-project.org/package=radarrr)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
 The goal of `radarrr` is to get movies out of
 [Radarr](https://github.com/Radarr/Radarr).
 

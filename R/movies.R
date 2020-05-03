@@ -17,8 +17,7 @@
 get_movies <- function(url = Sys.getenv("radarr_url"),
                        apikey = Sys.getenv("radarr_apikey"),
                        progress = TRUE) {
-
-  url = paste0(url, "/api/movie")
+  url <- paste0(url, "/api/movie")
   url <- parse_url(url)
   res <- content(GET(url, add_headers("X-Api-Key" = apikey)))
 
@@ -36,7 +35,6 @@ get_movies <- function(url = Sys.getenv("radarr_url"),
 #' @importFrom purrr pluck
 #' @importFrom lubridate ymd_hms
 extract_movie <- function(movie, .pb = NULL) {
-
   if ((!is.null(.pb)) && inherits(.pb, "Progress") && (.pb$i < .pb$n)) .pb$tick()$print()
 
   tibble(
@@ -44,7 +42,7 @@ extract_movie <- function(movie, .pb = NULL) {
     sortTitle = movie$sortTitle,
     sizeOnDisk = movie$sizeOnDisk,
     status = movie$status,
-    inCinemas = movie$inCinemas,
+    inCinemas = pluck(movie, "inCinemas", .default = NA),
     physicalRelease = pluck(movie, "movie$physicalRelease", .default = NA),
     physicialReleaseNote = pluck(movie, "physicalReleaseNote", .default = NA),
     downloaded = movie$downloaded,
@@ -54,7 +52,7 @@ extract_movie <- function(movie, .pb = NULL) {
     profileId = movie$profileId,
     pathState = movie$pathState,
     isAvailable = movie$isAvailable,
-    folderName = pluck(movie, "folderName",  .default = NA),
+    folderName = pluck(movie, "folderName", .default = NA),
     runtime = movie$runtime,
     cleanTitle = movie$cleanTitle,
     imdbId = pluck(movie, "imdbId", .default = NA),
@@ -71,11 +69,11 @@ extract_movie <- function(movie, .pb = NULL) {
     mediainfo_videoBitDepth = pluck(movie, "movieFile", "mediaInfo", "videoBitDepth", .default = NA),
     mediainfo_width = pluck(movie, "movieFile", "mediaInfo", "width", .default = NA),
     mediainfo_height = pluck(movie, "movieFile", "mediaInfo", "height", .default = NA),
-    mediainfo_audioFormat = pluck(movie, "movieFile", "mediaInfo",  "audioFormat", .default = NA),
-    mediainfo_audioBitrate = pluck(movie, "movieFile", "mediaInfo",  "audioBitrate", .default = NA),
-    mediainfo_runtime = pluck(movie, "movieFile", "mediaInfo",  "runTime", .default = NA),
-    mediainfo_audioStreamCount = pluck(movie, "movieFile", "mediaInfo",  "audioStreamCount", .default = NA),
-    medainfo_audioChannels = pluck(movie, "movieFile", "mediaInfo",  "audioChannels", .default = NA),
+    mediainfo_audioFormat = pluck(movie, "movieFile", "mediaInfo", "audioFormat", .default = NA),
+    mediainfo_audioBitrate = pluck(movie, "movieFile", "mediaInfo", "audioBitrate", .default = NA),
+    mediainfo_runtime = pluck(movie, "movieFile", "mediaInfo", "runTime", .default = NA),
+    mediainfo_audioStreamCount = pluck(movie, "movieFile", "mediaInfo", "audioStreamCount", .default = NA),
+    medainfo_audioChannels = pluck(movie, "movieFile", "mediaInfo", "audioChannels", .default = NA),
     mediainfo_audioLanguages = paste0(pluck(movie, "movieFile", "mediaInfo", "audioLanguages", .default = NA))
   )
 }

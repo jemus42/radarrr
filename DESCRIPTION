@@ -1,8 +1,14 @@
 Package: radarrr
 Title: Work With The 'Radarr' API
 Version: 0.1.0.9000
-Authors@R: person('Lukas', 'Burk', email = 'lukas@quantenbrot.de', role = c('aut', 'cre'), comment = c(ORCID = 'https://orcid.org/0000-0001-7528-3795'))
-Description: A wrapper for the 'Radarr' API to access your movies and metadata.
+Authors@R: 
+    person(given = "Lukas",
+           family = "Burk",
+           role = c("aut", "cre"),
+           email = "lukas@quantenbrot.de",
+           comment = c(ORCID = "https://orcid.org/0000-0001-7528-3795"))
+Description: A wrapper for the 'Radarr' API to access your
+    movies and metadata.
 License: MIT + file LICENSE
 Imports: 
     dplyr,
@@ -15,4 +21,4 @@ ByteCompile: true
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.0

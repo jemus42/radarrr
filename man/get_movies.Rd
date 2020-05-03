@@ -4,8 +4,11 @@
 \alias{get_movies}
 \title{Get All Radarr Movies}
 \usage{
-get_movies(url = Sys.getenv("radarr_url"),
-  apikey = Sys.getenv("radarr_apikey"), progress = TRUE)
+get_movies(
+  url = Sys.getenv("radarr_url"),
+  apikey = Sys.getenv("radarr_apikey"),
+  progress = TRUE
+)
 }
 \arguments{
 \item{url}{The Radarr base URL, defaults to \code{Sys.getenv("radarr_url")}.}

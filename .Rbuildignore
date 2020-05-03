@@ -3,3 +3,7 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^experiments\.R$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

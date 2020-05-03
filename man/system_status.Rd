@@ -4,8 +4,10 @@
 \alias{system_status}
 \title{Get Radarr's System Status}
 \usage{
-system_status(url = Sys.getenv("radarr_url"),
-  apikey = Sys.getenv("radarr_apikey"))
+system_status(
+  url = Sys.getenv("radarr_url"),
+  apikey = Sys.getenv("radarr_apikey")
+)
 }
 \arguments{
 \item{url}{The Radarr base URL, defaults to \code{Sys.getenv("radarr_url")}.}

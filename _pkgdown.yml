@@ -1,0 +1,13 @@
+url: https://jemus42.github.io/radarrr
+development:
+  mode: auto
+  destination: "."
+authors:
+  Lukas Burk:
+    href: https://jemu.name
+
+reference:
+- title: All functions
+  contents:
+  - '`get_movies`'
+  - '`system_status`'
