@@ -7,7 +7,9 @@ authors:
     href: https://jemu.name
 
 reference:
-- title: All functions
+- title: Media information
   contents:
-  - '`get_movies`'
-  - '`system_status`'
+  - get_movies
+- title: System status
+  contents:
+  - system_status
