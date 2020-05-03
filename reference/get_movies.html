@@ -115,29 +115,25 @@
     <p>Get All Radarr Movies</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_movies</span>(
-  <span class='kw'>url</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"radarr_url"</span>),
-  <span class='kw'>apikey</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"radarr_apikey"</span>),
-  <span class='kw'>progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>get_movies</span>(<span class='kw'>unpack</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>url</th>
-      <td><p>The Radarr base URL, defaults to <code><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv("radarr_url")</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>apikey</th>
-      <td><p>The Radarr API key, defaults to <code><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv("radarr_apikey")</a></code></p></td>
+      <th>unpack</th>
+      <td><p>If <code>TRUE</code>(default), result is unpacked to return a flat <code>tibble</code>.</p></td>
     </tr>
     <tr>
       <th>progress</th>
-      <td><p>If <code>TRUE</code> (default), displays a progress bar via <a href='https://dplyr.tidyverse.org/reference/progress_estimated.html'>dplyr::progress_estimated</a>.</p></td>
+      <td><p>If <code>TRUE</code> (default) and <code>unpack == TRUE</code>,
+displays a progress bar via <a href='https://dplyr.tidyverse.org/reference/progress_estimated.html'>dplyr::progress_estimated</a> during unpacking.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>https://github.com/Radarr/Radarr/wiki/API:Movie</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble::tibble</a> of all movies</p>
