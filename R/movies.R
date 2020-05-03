@@ -1,33 +1,33 @@
 #' Get All Radarr Movies
 #'
-#' @param url The Radarr base URL, defaults to `Sys.getenv("radarr_url")`.
-#' @param apikey The Radarr API key, defaults to `Sys.getenv("radarr_apikey")`
-#' @param progress If `TRUE` (default), displays a progress bar via [dplyr::progress_estimated].
-#'
+#' @param unpack If `TRUE`(default), result is unpacked to return a flat `tibble`.
+#' @param progress If `TRUE` (default) and `unpack == TRUE`,
+#' displays a progress bar via [dplyr::progress_estimated] during unpacking.
 #' @return A [tibble::tibble] of all movies
 #' @export
 #' @import httr
 #' @importFrom purrr map_df
 #' @importFrom dplyr progress_estimated
-#'
+#' @source https://github.com/Radarr/Radarr/wiki/API:Movie
 #' @examples
 #' \dontrun{
 #' movies <- get_movies()
 #' }
-get_movies <- function(url = Sys.getenv("radarr_url"),
-                       apikey = Sys.getenv("radarr_apikey"),
-                       progress = TRUE) {
-  url <- paste0(url, "/api/movie")
-  url <- parse_url(url)
-  res <- content(GET(url, add_headers("X-Api-Key" = apikey)))
+get_movies <- function(unpack = TRUE, progress = TRUE) {
 
-  if (progress) {
-    pb <- progress_estimated(length(res), min_time = 0)
+  res <- radarr_get("/api/movie")
+
+  if (unpack) {
+    if (progress) {
+      pb <- progress_estimated(length(res), min_time = 0)
+    } else {
+      pb <- NULL
+    }
+
+    map_df(res, extract_movie, .pb = pb)
   } else {
-    pb <- NULL
+    res
   }
-
-  map_df(res, extract_movie, .pb = pb)
 }
 
 #' @keywords internal

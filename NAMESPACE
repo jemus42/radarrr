@@ -2,6 +2,7 @@
 
 export("%>%")
 export(get_movies)
+export(radarr_get)
 export(system_status)
 import(httr)
 importFrom(dplyr,progress_estimated)

@@ -3,16 +3,11 @@
 \name{system_status}
 \alias{system_status}
 \title{Get Radarr's System Status}
-\usage{
-system_status(
-  url = Sys.getenv("radarr_url"),
-  apikey = Sys.getenv("radarr_apikey")
-)
+\source{
+https://github.com/Radarr/Radarr/wiki/API:System-Status
 }
-\arguments{
-\item{url}{The Radarr base URL, defaults to \code{Sys.getenv("radarr_url")}.}
-
-\item{apikey}{The Radarr API key, defaults to \code{Sys.getenv("radarr_apikey")}}
+\usage{
+system_status()
 }
 \value{
 A \code{list}

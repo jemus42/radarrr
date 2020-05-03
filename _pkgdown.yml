@@ -7,6 +7,9 @@ authors:
     href: https://jemu.name
 
 reference:
+- title: Arbitrary API interaction
+  content:
+  - radarr_get
 - title: Media information
   contents:
   - get_movies

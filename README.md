@@ -14,7 +14,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of `radarrr` is to get movies out of
-[Radarr](https://github.com/Radarr/Radarr).
+[Radarr](https://github.com/Radarr/Radarr). The API is [documented
+here](https://github.com/Radarr/Radarr/wiki/API).
 
 At this point, the package only provides one function: `get_movies`,
 which returns a `tibble` of all the movies Radarr knows about. Nothing

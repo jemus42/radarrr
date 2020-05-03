@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-The goal of `radarrr` is to get movies out of [Radarr](https://github.com/Radarr/Radarr).
+The goal of `radarrr` is to get movies out of [Radarr](https://github.com/Radarr/Radarr). The API is [documented here](https://github.com/Radarr/Radarr/wiki/API).
 
 At this point, the package only provides one function: `get_movies`, which returns a `tibble` of all the movies Radarr knows about. Nothing less, nothing more, because that's the only thing I'm really interested in with the Radarr API.
 

@@ -3,19 +3,17 @@
 \name{get_movies}
 \alias{get_movies}
 \title{Get All Radarr Movies}
+\source{
+https://github.com/Radarr/Radarr/wiki/API:Movie
+}
 \usage{
-get_movies(
-  url = Sys.getenv("radarr_url"),
-  apikey = Sys.getenv("radarr_apikey"),
-  progress = TRUE
-)
+get_movies(unpack = TRUE, progress = TRUE)
 }
 \arguments{
-\item{url}{The Radarr base URL, defaults to \code{Sys.getenv("radarr_url")}.}
+\item{unpack}{If \code{TRUE}(default), result is unpacked to return a flat \code{tibble}.}
 
-\item{apikey}{The Radarr API key, defaults to \code{Sys.getenv("radarr_apikey")}}
-
-\item{progress}{If \code{TRUE} (default), displays a progress bar via \link[dplyr:progress_estimated]{dplyr::progress_estimated}.}
+\item{progress}{If \code{TRUE} (default) and \code{unpack == TRUE},
+displays a progress bar via \link[dplyr:progress_estimated]{dplyr::progress_estimated} during unpacking.}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} of all movies
