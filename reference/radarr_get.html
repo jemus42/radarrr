@@ -115,7 +115,7 @@
     <p>Make a GET request to the Radarr API</p>
     </div>
 
-    <pre class="usage"><span class='fu'>radarr_get</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/api/system/status"</span>)</pre>
+    <pre class="usage"><span class='fu'>radarr_get</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/api/system/status"</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -123,6 +123,10 @@
     <tr>
       <th>path</th>
       <td><p>The API path, e.g. <code>"/api/system/status"</code> (default).</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Named arguments used as query parameters.</p></td>
     </tr>
     </table>
 
