@@ -6,7 +6,7 @@ Authors@R:
            family = "Burk",
            role = c("aut", "cre"),
            email = "lukas@quantenbrot.de",
-           comment = c(ORCID = "https://orcid.org/0000-0001-7528-3795"))
+           comment = c(ORCID = "0000-0001-7528-3795"))
 Description: A wrapper for the 'Radarr' API to access your
     movies and metadata.
 License: MIT + file LICENSE
