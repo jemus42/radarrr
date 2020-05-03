@@ -4,10 +4,12 @@
 \alias{radarr_get}
 \title{Make a GET request to the Radarr API}
 \usage{
-radarr_get(path = "/api/system/status")
+radarr_get(path = "/api/system/status", ...)
 }
 \arguments{
 \item{path}{The API path, e.g. \code{"/api/system/status"} (default).}
+
+\item{...}{Named arguments used as query parameters.}
 }
 \value{
 A list.

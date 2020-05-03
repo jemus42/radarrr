@@ -1,6 +1,6 @@
 #' Pipe operator
 #'
-#' See `magrittr::[\%>\%][magrittr::\%>\%]` for details.
+#' See `magrittr::[\%>\%][magrittr::pipe]` for details.
 #'
 #' @name %>%
 #' @rdname pipe

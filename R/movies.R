@@ -3,7 +3,7 @@
 #' @param unpack If `TRUE`(default), result is unpacked to return a flat `tibble`.
 #' @param progress If `TRUE` (default) and `unpack == TRUE`,
 #' displays a progress bar via [dplyr::progress_estimated] during unpacking.
-#' @return A [tibble::tibble] of all movies
+#' @return a [tibble][tibble::tibble-package]
 #' @export
 #' @import httr
 #' @importFrom purrr map_df

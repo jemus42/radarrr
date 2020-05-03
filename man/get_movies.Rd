@@ -16,7 +16,7 @@ get_movies(unpack = TRUE, progress = TRUE)
 displays a progress bar via \link[dplyr:progress_estimated]{dplyr::progress_estimated} during unpacking.}
 }
 \value{
-A \link[tibble:tibble]{tibble::tibble} of all movies
+a \link[tibble:tibble-package]{tibble}
 }
 \description{
 Get All Radarr Movies
