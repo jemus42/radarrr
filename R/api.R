@@ -11,7 +11,7 @@
 #' radarr_get()
 #' }
 #'
-radarr_get <- function(path = "/api/system/status", ...) {
+radarr_get <- function(path = "/api/v3/system/status", ...) {
 
   url <- Sys.getenv("radarr_url")
   apikey <- Sys.getenv("radarr_apikey")

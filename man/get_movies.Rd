@@ -4,16 +4,13 @@
 \alias{get_movies}
 \title{Get All Radarr Movies}
 \source{
-https://github.com/Radarr/Radarr/wiki/API:Movie
+https://radarr.video/docs/api/#/Movie/getMovie
 }
 \usage{
-get_movies(unpack = TRUE, progress = TRUE)
+get_movies(tmdbId = NULL)
 }
 \arguments{
-\item{unpack}{If \code{TRUE}(default), result is unpacked to return a flat \code{tibble}.}
-
-\item{progress}{If \code{TRUE} (default) and \code{unpack == TRUE},
-displays a progress bar via \link[dplyr:progress_estimated]{dplyr::progress_estimated} during unpacking.}
+\item{tmdbId}{\verb{[NULL]} tmdb ID of the movie to get. Default gets all movies.}
 }
 \value{
 a \link[tibble:tibble-package]{tibble}

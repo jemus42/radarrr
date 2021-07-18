@@ -3,7 +3,7 @@
 #' @param page 1-index page.
 #' @param pageSize Number of items per page.
 #'
-#' @return a [tibble][tibble::tibble-package]
+#' @return a [tibble][tibble::tibble-package] with `page` rows and 6 columns.
 #' @export
 #'
 #' @examples
@@ -11,7 +11,7 @@
 #' history <- get_history()
 #' }
 get_history <- function(page = 1, pageSize = 10) {
-  res <- radarr_get("/api/history", page = page, pageSize = pageSize)
+  res <- radarr_get("/api/v3/history", page = page, pageSize = pageSize)
 
   res <- tibble::as_tibble(res)
   res$records <- tibble::as_tibble(res$records)

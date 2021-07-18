@@ -8,5 +8,5 @@
 #' system_status()
 #' }
 system_status <- function() {
-  radarr_get("/api/system/status")
+  radarr_get("/api/v3/system/status")
 }

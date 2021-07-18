@@ -12,7 +12,7 @@ get_history(page = 1, pageSize = 10)
 \item{pageSize}{Number of items per page.}
 }
 \value{
-a \link[tibble:tibble-package]{tibble}
+a \link[tibble:tibble-package]{tibble} with \code{page} rows and 6 columns.
 }
 \description{
 Get history
