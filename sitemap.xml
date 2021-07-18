@@ -10,6 +10,9 @@
     <loc>https://jemus42.github.io/radarrr/reference/get_movies.html</loc>
   </url>
   <url>
+    <loc>https://jemus42.github.io/radarrr/reference/health.html</loc>
+  </url>
+  <url>
     <loc>https://jemus42.github.io/radarrr/reference/pipe.html</loc>
   </url>
   <url>
@@ -19,6 +22,12 @@
     <loc>https://jemus42.github.io/radarrr/reference/radarrr-package.html</loc>
   </url>
   <url>
+    <loc>https://jemus42.github.io/radarrr/reference/root_folder.html</loc>
+  </url>
+  <url>
     <loc>https://jemus42.github.io/radarrr/reference/system_status.html</loc>
+  </url>
+  <url>
+    <loc>https://jemus42.github.io/radarrr/reference/update.html</loc>
   </url>
 </urlset>
