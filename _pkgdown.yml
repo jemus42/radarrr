@@ -8,11 +8,15 @@ authors:
 
 reference:
 - title: Arbitrary API interaction
-  content:
+  contents:
   - radarr_get
 - title: Media information
   contents:
   - get_movies
+  - get_history
 - title: System status
   contents:
   - system_status
+  - update
+  - health
+  - root_folder
