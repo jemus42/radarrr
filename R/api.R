@@ -16,10 +16,10 @@ radarr_get <- function(path = "/api/v3/system/status", ...) {
   url <- Sys.getenv("radarr_url")
   apikey <- Sys.getenv("radarr_apikey")
 
-  url <- modify_url(url, path = path, query = list(...))
+  url <- httr::modify_url(url, path = path, query = list(...))
 
-  res <- GET(url, add_headers("X-Api-Key" = apikey))
-  res <- content(res, "text", encoding = "UTF-8")
+  res <- httr::GET(url, httr::add_headers("X-Api-Key" = apikey))
+  res <- httr::content(res, "text", encoding = "UTF-8")
   jsonlite::fromJSON(res)
 
 }

@@ -5,17 +5,16 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/jemus42/radarrr/workflows/R-CMD-check/badge.svg)](https://github.com/jemus42/radarrr/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/radarrr)](https://CRAN.R-project.org/package=radarrr)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R-CMD-check](https://github.com/jemus42/radarrr/workflows/R-CMD-check/badge.svg)](https://github.com/jemus42/radarrr/actions)
 <!-- badges: end -->
 
 The goal of `radarrr` is to get movies out of
 [Radarr](https://github.com/Radarr/Radarr). The API is [documented
-here](https://github.com/Radarr/Radarr/wiki/API).
+here](https://radarr.video/docs/api/).
 
 At this point, the package only provides one function: `get_movies`,
 which returns a `tibble` of all the movies Radarr knows about. Nothing

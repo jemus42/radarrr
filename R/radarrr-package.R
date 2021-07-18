@@ -5,5 +5,6 @@
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
 #' @importFrom tibble tibble as_tibble
+#' @importFrom rlang .data .env
 ## usethis namespace: end
 NULL

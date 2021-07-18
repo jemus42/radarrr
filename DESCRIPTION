@@ -16,7 +16,9 @@ Imports:
     jsonlite,
     lubridate,
     magrittr,
+    prettyunits,
     purrr,
+    rlang,
     tibble
 ByteCompile: true
 Encoding: UTF-8

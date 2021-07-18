@@ -16,11 +16,11 @@ get_movies <- function(tmdbId = NULL) {
   res <- radarr_get("/api/v3/movie", tmdbId = tmdbId)
   res <- res %>%
     mutate(
-      sizeOnDisk = prettyunits::pretty_bytes(sizeOnDisk),
-      added = lubridate::ymd(added)
+      sizeOnDisk = prettyunits::pretty_bytes(.data$sizeOnDisk),
+      added = lubridate::ymd(.data$added)
     ) %>%
     mutate(across(
-      c(inCinemas, physicalRelease, digitalRelease, added),
+      c("inCinemas", "physicalRelease", "digitalRelease", "added"),
       lubridate::ymd_hms
     )) %>%
     as_tibble()
