@@ -27,3 +27,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     tidyr
+URL: https://github.com/jemus42/radarrr
+BugReports: https://github.com/jemus42/radarrr/issues
