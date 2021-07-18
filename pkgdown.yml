@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1
+pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: []
-last_built: 2020-05-03T19:59Z
+articles: {}
+last_built: 2021-07-18T01:10Z
 urls:
   reference: https://jemus42.github.io/radarrr/reference
   article: https://jemus42.github.io/radarrr/articles
